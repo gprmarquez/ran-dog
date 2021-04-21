@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 
 import { Button, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Icon from '@material-ui/core/Icon';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,14 +21,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DogImager() {
+    // declare new state variable, photo
     const [photo, setPhoto] = useState('');
     const classes = useStyles();
 
     useEffect(() => {
+        // retrieve new photo once site renders
         newPhoto()
     }, []);
 
     function newPhoto() {
+        // calls the Dog API to set photo value to a random dog photo URL 
         fetch('https://dog.ceo/api/breeds/image/random').then(res => res.json()).then(data => {
             setPhoto(data.message)
         });
@@ -46,8 +48,7 @@ export default function DogImager() {
                     variant="contained"
                     color="primary"
                     className={classes.button}
-                    circleIcon={<Icon></Icon>}
-                    onClick={newPhoto}
+                    onClick={newPhoto} // calls newPhoto method to retrieve another photo
                 >
                     New Doggo!
             </Button>
