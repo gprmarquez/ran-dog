@@ -1,29 +1,58 @@
 import React, { useState, useEffect } from 'react'
-import '../components/DogImager.css'
+
+import { Button, Box } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import Icon from '@material-ui/core/Icon';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
+    },
+    btnContainer: {
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'center'
+    },
+    button: {
+        padding: '12px',
+        margin: '12px',
+        boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .2)',
+        background: '#af8eb5'
+    },
+}));
 
 export default function DogImager() {
-    const [message, setMessage] = useState('')
+    const [photo, setphoto] = useState('');
+    const classes = useStyles();
 
     useEffect(() => {
-        fetch('https://dog.ceo/api/breeds/image/random').then(res => res.json()).then(data => {
-            setMessage(data.message)
-        });
+        newPhoto()
     }, []);
 
     function newPhoto() {
-        console.log('Here is a new photo!')
         fetch('https://dog.ceo/api/breeds/image/random').then(res => res.json()).then(data => {
-            setMessage(data.message)
+            setphoto(data.message)
+            console.log(data.message)
         });
     };
 
     return (
         <div>
-            <p>Here is a random dog!</p>
-            <img src={message} alt='random canine' />
-            <button className="dog-button" onClick={newPhoto}>
-                New Doggo!
-            </button>
+            <Box className={classes.root}>
+                <p>Here is a random dog!</p>
+                <img className="img" src={photo} alt='random canine' />
+            </Box>
+            <div className={classes.btnContainer}>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.button}
+                    circleIcon={<Icon></Icon>}
+                    onClick={newPhoto}
+                >
+                    New Doggo!
+            </Button>
+            </div>
         </div>
     )
 }
