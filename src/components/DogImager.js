@@ -32,7 +32,6 @@ export default function DogImager() {
     function newPhoto() {
         fetch('https://dog.ceo/api/breeds/image/random').then(res => res.json()).then(data => {
             setphoto(data.message)
-            console.log(data.message)
         });
     };
 
