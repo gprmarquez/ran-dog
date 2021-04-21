@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DogImager() {
-    const [photo, setphoto] = useState('');
+    const [photo, setPhoto] = useState('');
     const classes = useStyles();
 
     useEffect(() => {
@@ -31,7 +31,7 @@ export default function DogImager() {
 
     function newPhoto() {
         fetch('https://dog.ceo/api/breeds/image/random').then(res => res.json()).then(data => {
-            setphoto(data.message)
+            setPhoto(data.message)
         });
     };
 
