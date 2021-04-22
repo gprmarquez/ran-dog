@@ -5,16 +5,26 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        width: '100vw',
+        height: '75vh'
+    },
+    imgContainer: {
+        maxWidth: '100%',
+        height: '60vh'
+    },
+    img: {
+        maxWidth: '100%',
+        maxHeight: '100%'
     },
     btnContainer: {
         display: 'flex',
         width: '100%',
         justifyContent: 'center'
     },
-    button: {
-        padding: '12px',
-        margin: '12px',
+    btn: {
+        padding: '1rem',
+        margin: '1rem',
         boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .2)',
         background: '#af8eb5'
     },
@@ -38,21 +48,23 @@ export default function DogImager() {
     };
 
     return (
-        <div>
+        <>
             <Box className={classes.root}>
                 <p>Here is a random dog!</p>
-                <img className="img" src={photo} alt='random canine' />
+                <div className={classes.imgContainer}>
+                    <img className={classes.img} src={photo} alt='random canine' />
+                </div>
             </Box>
             <div className={classes.btnContainer}>
                 <Button
                     variant="contained"
                     color="primary"
-                    className={classes.button}
+                    className={classes.btn}
                     onClick={newPhoto} // calls newPhoto method to retrieve another photo
                 >
                     New Doggo!
             </Button>
             </div>
-        </div>
+        </>
     )
 }
