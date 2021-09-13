@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function DogImager() {
+export default function DogImager(props) {
     // declare new state variable, photo
     const [photo, setPhoto] = useState('');
     const classes = useStyles();
@@ -50,7 +50,7 @@ export default function DogImager() {
     return (
         <>
             <Box className={classes.root}>
-                <p>Here is a random dog!</p>
+                <p>{props.title}</p>
                 <div className={classes.imgContainer}>
                     <img className={classes.img} src={photo} alt='random canine' />
                 </div>

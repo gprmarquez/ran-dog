@@ -8,13 +8,13 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
-    menuButton: {
-        marginRight: theme.spacing(2),
-    },
     title: {
         flexGrow: 1,
-        fontSize: '36px'
+        fontSize: '2rem'
     },
+    bar: {
+        background: 'orange'
+    }
 }));
 
 export default function TopBar() {
@@ -23,7 +23,7 @@ export default function TopBar() {
     return (
         <div className={classes.root}>
             <AppBar position="static">
-                <Toolbar>
+                <Toolbar className={classes.bar}>
                     <Typography variant="h1" className={classes.title}>
                         Ran-Dog
           </Typography>

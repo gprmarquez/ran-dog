@@ -4,10 +4,10 @@ import TopBar from './components/TopBar'
 
 function App() {
   return (
-    <body className="App">
+    <div className="App">
       <TopBar />
-      <DogImager />
-    </body>
+      <DogImager title={"Hello!"}/>
+    </div>
   );
 }
 
