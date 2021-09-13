@@ -5,15 +5,13 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
     title: {
         flexGrow: 1,
         fontSize: '2rem'
     },
     bar: {
-        background: 'orange'
+        background: 'orange',
+        position: 'static'
     }
 }));
 
@@ -21,8 +19,8 @@ export default function TopBar() {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-            <AppBar position="static">
+        <div>
+            <AppBar position='static'>
                 <Toolbar className={classes.bar}>
                     <Typography variant="h1" className={classes.title}>
                         Ran-Dog

@@ -7,11 +7,13 @@ const useStyles = makeStyles((theme) => ({
     root: {
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
         width: '100vw',
-        height: '75vh'
+        height: '80vh'
     },
     imgContainer: {
         maxWidth: '100%',
-        height: '60vh'
+        height: '65vh',
+        display: 'flex',
+        justifyContent: 'center'
     },
     img: {
         maxWidth: '100%',
